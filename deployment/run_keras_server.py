@@ -1,4 +1,4 @@
-from utils import generate_random_start, generate_from_seed
+from getcsv import bottell
 #from keras.models import load_model
 #import tensorflow as tf
 from flask import Flask, render_template, request
@@ -42,18 +42,16 @@ def home():
     # Create form
     form = ReusableForm(request.form)
 
-    '''# On form entry and all conditions met
+    # On form entry and all conditions met
     if request.method == 'POST' and form.validate():
         # Extract information
         seed = request.form['seed']
-        #diversity = float(request.form['diversity'])
-        #words = int(request.form['words'])
         # Generate a random sequence
-        if seed == 'random':
-            return render_template('random.html', input=generate_random_start(model=model, graph=graph, new_words=words, diversity=diversity))
-        # Generate starting from a seed sequence
-        else:
-            return render_template('seeded.html', input=generate_from_seed(model=model, graph=graph, seed=seed, new_words=words, diversity=diversity))
+        if seed != '':
+            prediction = bottell(seed)
+            if prediction == 1:
+                request.form['seed']='It is a bot'
+                render_template('index.html', form=form)
     # Send template information to index.html'''
     return render_template('index.html', form=form)
 
