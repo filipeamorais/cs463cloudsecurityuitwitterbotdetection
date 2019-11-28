@@ -50,10 +50,13 @@ def home():
         if seed != '':
             prediction = bottell(seed)
             if prediction == 1:
-                request.form['seed']='It is a bot'
-                render_template('index.html', form=form)
+                print ("it is")
+                return render_template('index.html', form=form, input="It is a bot")
+            else:
+                print("not a bot")
+                return render_template('index.html', form=form, input="It is not a bot")
     # Send template information to index.html'''
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, input="result")
 
 
 if __name__ == "__main__":

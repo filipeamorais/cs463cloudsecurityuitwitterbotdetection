@@ -68,6 +68,7 @@ def write_to_csv(responses):
 #%% Get all the details
 def bottell(twitterid):
     uname = twitterid
+    print(uname)
     #uname = "filipe_a_morais"
     user = api.get_user(uname)
     """print(user.name)
@@ -82,11 +83,11 @@ def bottell(twitterid):
     #%%
     
     
-    train_data = pd.read_csv('C://proj_git//cs463cloudsecurity//final//kaggle_train.csv')
+    train_data = pd.read_csv(os.getcwd() + '/kaggle_train.csv')
     
-    bot_data = pd.read_csv('C://proj_git//cs463cloudsecurity//final//bots_data.csv',engine='python')
-    nonbot_data = pd.read_csv('C://proj_git//cs463cloudsecurity//final//nonbots_data.csv',engine='python')
-    test_data = pd.read_csv('C://proj_git//cs463cloudsecurity//final//test.csv')
+    bot_data = pd.read_csv(os.getcwd() + '/bots_data.csv',engine='python')
+    nonbot_data = pd.read_csv(os.getcwd() + '/nonbots_data.csv',engine='python')
+    test_data = pd.read_csv(os.getcwd() + '/test.csv')
     
     #%%
     
@@ -130,4 +131,5 @@ def bottell(twitterid):
     #%%
         
     warnings.filterwarnings('ignore')
+    print(pred)
     return(pred)
