@@ -1,4 +1,4 @@
-# recurrent-neural-networks
+# recurrent-neural-networks - TO BE ORGANIZED
 Learning about and doing projects with recurrent neural networks
 
 ## Setup using docker and docker-compose
